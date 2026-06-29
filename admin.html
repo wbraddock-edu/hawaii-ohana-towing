@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Ohana Towing & Recovery</title>
+<link rel="stylesheet" href="css/style.css">
+<style>body{overflow-x:hidden}.admin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:32px}</style>
+</head>
+<body>
+<div id="loginOverlay" class="login-overlay">
+  <div class="login-box">
+    <svg width="48" height="48" viewBox="0 0 44 44" fill="none" style="margin:0 auto 16px"><rect width="44" height="44" rx="6" fill="#922B21"/><rect x="6" y="24" width="32" height="8" rx="2" fill="#F1C40F"/></svg>
+    <h2>Admin Access</h2><p>Ohana Towing Dispatch Dashboard</p>
+    <form id="loginForm"><div class="form-group"><input type="password" id="adminPw" placeholder="Password" required></div><div id="loginError" style="color:#c0392b;font-size:0.85rem;margin-bottom:12px"></div><button type="submit" class="btn btn-primary" style="width:100%">Sign In</button></form>
+    <p style="margin-top:16px;font-size:0.82rem;color:var(--text-light)">Demo: admin123</p>
+  </div>
+</div>
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <div style="padding:20px 20px 0;margin-bottom:16px"><a href="index.html" class="logo-wrap" style="color:var(--text)"><svg width="32" height="32" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="6" fill="#922B21"/><rect x="6" y="24" width="32" height="8" rx="2" fill="#F1C40F"/></svg><span style="font-size:0.85rem">Ohana Towing</span></a></div>
+    <nav class="admin-nav">
+      <a href="#dashboard" class="active">📊 Dashboard</a><a href="#dispatches">🚚 Dispatches</a><a href="#messages">💬 Messages</a><a href="#fleet">🚛 Fleet Status</a><a href="index.html">← View Site</a>
+    </nav>
+    <div style="padding:20px;margin-top:20px"><button class="btn-dark-toggle" id="darkToggle" aria-label="Toggle dark mode" style="width:100%;border-radius:var(--radius)"><svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--text)"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button></div>
+  </aside>
+  <main class="admin-main">
+    <div style="margin-bottom:28px"><h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;text-transform:uppercase">Dispatch Dashboard</h2><p style="color:var(--text-muted)">Monday, June 29, 2026 — 3:16 AM — 2 Trucks Active</p></div>
+    <div class="admin-grid">
+      <div class="stat-card"><div class="val">2</div><div class="label">Active Calls</div></div>
+      <div class="stat-card"><div class="val">18</div><div class="label">Today's Dispatches</div></div>
+      <div class="stat-card"><div class="val">$3,240</div><div class="label">Today's Revenue</div></div>
+      <div class="stat-card"><div class="val">28 min</div><div class="label">Avg Response</div></div>
+      <div class="stat-card"><div class="val">4</div><div class="label">New Messages</div></div>
+      <div class="stat-card"><div class="val">9/12</div><div class="label">Trucks Available</div></div>
+    </div>
+    <div id="dispatches" style="margin-bottom:40px">
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.4rem;text-transform:uppercase;margin-bottom:16px">Recent Dispatches</h3>
+      <div style="overflow-x:auto">
+        <table class="admin-table">
+          <thead><tr><th>ID</th><th>Customer</th><th>Service</th><th>Location</th><th>Driver</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>#D-9041</td><td>Maria Santos</td><td>Flatbed Tow</td><td>H1 Eastbound MM12</td><td>Koa R.</td><td><span class="badge badge-yellow">En Route</span></td></tr>
+            <tr><td>#D-9040</td><td>James Freitas</td><td>Lockout</td><td>Ala Moana Parking</td><td>Troy S.</td><td><span class="badge badge-yellow">On Scene</span></td></tr>
+            <tr><td>#D-9039</td><td>Susan Park</td><td>Jump Start</td><td>Kapiolani Blvd</td><td>Lani K.</td><td><span class="badge badge-green">Complete</span></td></tr>
+            <tr><td>#D-9038</td><td>Robert Teves</td><td>Motorcycle Tow</td><td>Likelike Hwy</td><td>Marcus K.</td><td><span class="badge badge-green">Complete</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="messages">
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.4rem;text-transform:uppercase;margin-bottom:16px">Messages</h3>
+      <table class="admin-table">
+        <thead><tr><th>From</th><th>Message</th><th>Time</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Carlos R.</td><td>Fleet account — need 3 tows tomorrow AM</td><td>2:44 AM</td><td><span class="badge badge-red">Unread</span></td></tr>
+          <tr><td>Dispatch Online</td><td>Roadside request via website form</td><td>1:22 AM</td><td><span class="badge badge-red">Unread</span></td></tr>
+          <tr><td>AAA Hawaii</td><td>Overflow dispatch request batch</td><td>Yesterday</td><td><span class="badge badge-yellow">Pending</span></td></tr>
+          <tr><td>Progressive Insurance</td><td>Claim #HI-88234 — billing confirmation</td><td>Jun 28</td><td><span class="badge badge-green">Handled</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<script src="js/main.js"></script>
+
+  <!-- Powered by Design Holistically -->
+  <footer style="background:#111;color:#aaa;text-align:center;padding:1.5rem;font-size:0.85rem;font-family:sans-serif;">
+    <p>&copy; 2024. Powered by <a href="https://designholistically.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">Design Holistically</a>. All rights reserved.</p>
+  </footer>
+
+</body></html>
